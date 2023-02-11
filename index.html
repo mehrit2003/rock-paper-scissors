@@ -11,22 +11,29 @@
         <H1>Rock Paper Scissors</H1>
 
         <script>
+
+
+            /*Assiging variables*/
+            let playerSelection = getPlayerChoice();
+            let computerSelection = getComputerChoice()
+
             /*getting computerChoice()*/game
             function getComputerChoice(){
                 let computerChoice = Math.random() * 100;
                 if(computerChoice < 33){
                     computerChoice = "Rock";
                 }else if(computerChoice < 66){
-                    computerChoice = "paper";
+                    computerChoice = "Paper";
                 }else{
-                    computerChoice = "scissors";
+                    computerChoice = "Scissors";
                 }
+                
                  return computerChoice;
             }
 
-
+            /*getting player choice*/
             function getPlayerChoice(){
-                let playerSelection =  prompt();
+                let playerSelection =  prompt("Coose a weapon from 1:Rock 2: Paper and 3: Scissors.");
                 if(playerSelection == 1){
                     playerSelection = "Rock";
                 }else if(playerSelection == 2){
@@ -34,16 +41,33 @@
                 }else if(playerSelection == 3){
                     playerSelection = "Scissors";
                 }else{
-                    playerSelection = " Chose a legit weapon please."
+                    playerSelection = " Chose a legit weapon please: 1, 2, or 3."
+                    getPlayerChoice();
+                    
                 }
 
                 return playerSelection;
             }
 
-            function roundPlay(playerSelection, computerSelection){
-                if(playerSelection == computerSelection){
+            function roundPlay( playerSelection, computerSelection){
+                  playerSelection = getPlayerChoice();
+                  computerSelection = getComputerChoice();
+                 //console check
+                 console.log(playerSelection);
+                 console.log(computerSelection);
+                
+                
+                 if(playerSelection  === computerSelection){
                     return "Draw round"
-                } 
+                }else if(playerSelection === "Rock" && computerSelection === "Scissors"){
+                    return " You won the round";
+                }else if(playerSelection === "Paper" && computerSelection === "Rock"){
+                    return " You won the round";          
+                }else if(playerSelection === "Scissors" && computerSelection === "Paper"){
+                    return " You won the round";
+                }else{
+                    return "You lose this round";
+                }
             }
 
             function game(){
@@ -52,10 +76,13 @@
                 }
             }
 
-            /*test*/
+            
+
+            /*test*
             console.log(getComputerChoice());
-            getPlayerChoice();
+           
             console.log(getPlayerChoice());
+            console.log(roundPlay());*/
 
         </script>
     </div>
