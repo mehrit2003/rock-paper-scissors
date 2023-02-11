@@ -16,6 +16,8 @@
             /*Assiging variables*/
             let playerSelection = getPlayerChoice();
             let computerSelection = getComputerChoice()
+            let roundWinner;
+
 
             /*getting computerChoice()*/game
             function getComputerChoice(){
@@ -33,7 +35,7 @@
 
             /*getting player choice*/
             function getPlayerChoice(){
-                let playerSelection =  prompt("Coose a weapon from 1:Rock 2: Paper and 3: Scissors.");
+                let playerSelection =  prompt("Choose a weapon from 1:Rock 2: Paper and 3: Scissors.");
                 if(playerSelection == 1){
                     playerSelection = "Rock";
                 }else if(playerSelection == 2){
@@ -50,27 +52,36 @@
             }
 
             function roundPlay( playerSelection, computerSelection){
-                  playerSelection = getPlayerChoice();
-                  computerSelection = getComputerChoice();
+                 
+                computerSelection = getComputerChoice();
+                console.log(computerSelection);
+                playerSelection = getPlayerChoice();
+                 
                  //console check
-                 console.log(playerSelection);
-                 console.log(computerSelection);
+               
+
                 
                 
                  if(playerSelection  === computerSelection){
+                    roundWinner = "No winner";
                     return "Draw round"
                 }else if(playerSelection === "Rock" && computerSelection === "Scissors"){
-                    return " You won the round";
+                    roundWinner = "Player";
+                    return " You won the round" ;
                 }else if(playerSelection === "Paper" && computerSelection === "Rock"){
+                    roundWinner = "Player";
                     return " You won the round";          
                 }else if(playerSelection === "Scissors" && computerSelection === "Paper"){
+                    roundWinner = "Player";
                     return " You won the round";
                 }else{
+                    roundWinner = "Computer";
                     return "You lose this round";
                 }
             }
-
+            /* 5 round game*/
             function game(){
+
                 for(let i = 0; i < 5; i++){
                     roundPlay();
                 }
