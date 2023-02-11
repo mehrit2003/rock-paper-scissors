@@ -13,16 +13,18 @@
         <script>
 
 
-            /*Assiging variables*/
+            /*Assigning variables*/
             let playerSelection = getPlayerChoice();
             let computerSelection = getComputerChoice()
             let roundWinner;
 
-            let playerScore;
-            let computerScore;
+            let playerScore = 0;
+            let computerScore = 0;
+
+            let gameWinner;
 
 
-            /*getting computerChoice()*/game
+            /*getting computerChoice()*/
             function getComputerChoice(){
                 let computerChoice = Math.random() * 100;
                 if(computerChoice < 33){
@@ -38,27 +40,27 @@
 
             /*getting player choice*/
             function getPlayerChoice(){
-                let playerSelection =  prompt("Choose a weapon from 1:Rock 2: Paper and 3: Scissors.");
-                if(playerSelection == 1){
-                    playerSelection = "Rock";
-                }else if(playerSelection == 2){
-                    playerSelection = "Paper";
-                }else if(playerSelection == 3){
-                    playerSelection = "Scissors";
+                let playerChoice=  prompt("Choose a weapon from 1:Rock 2: Paper and 3: Scissors.");
+                if(playerChoice== 1){
+                    playerChoice = "Rock";
+                }else if(playerChoice== 2){
+                    playerChoice = "Paper";
+                }else if(playerChoice == 3){
+                    playerChoice = "Scissors";
                 }else{
-                    playerSelection = " Chose a legit weapon please: 1, 2, or 3."
+                    playerChoice= " Chose a legit weapon please: 1, 2, or 3."
                     getPlayerChoice();
                     
                 }
 
-                return playerSelection;
+                return playerChoice;
             }
 
             function roundPlay( playerSelection, computerSelection){
                  
                 computerSelection = getComputerChoice();
                 console.log(computerSelection);
-                playerSelection = getPlayerChoice();
+                playerSelection = getPlayerChoice()
                  
                  
                
@@ -68,30 +70,54 @@
                  if(playerSelection  === computerSelection){
                     roundWinner = "No winner";
                     return "Draw round"
-                }else if(playerSelection === "Rock" && computerSelection === "Scissors"){
+                }
+                
+                if(playerSelection === "Rock" && computerSelection === "Scissors"){
                     roundWinner = "Player";
-                    return " You won the round" ;
+                    return "Player" ;
                 }else if(playerSelection === "Paper" && computerSelection === "Rock"){
                     roundWinner = "Player";
-                    return " You won the round";          
+                    return " Player";          
                 }else if(playerSelection === "Scissors" && computerSelection === "Paper"){
                     roundWinner = "Player";
-                    return " You won the round";
+                    return " Player";
                 }else{
                     roundWinner = "Computer";
-                    return "You lose this round";
+                    return "Computer";
                 }
+                console.log(roundWinner);
             }
             /* 5 round game*/
             function game(){
                 let roundNumber = 5;
-                playerScore = 0;
-                computerScore = 0;
+                //playerScore = 0;
+                //computerScore = 0;
                 for(let i = 0; i < 5; i++){
-                    roundPlay();
+                    roundPlay(playerSelection, computerSelection);
+                    if(roundWinner === "Player"){
+                        playerScore++;
+                    }else if(roundWinner === "Computer"){
+                        computerScore++;
+                    }
                     roundNumber--;
                     console.log(roundNumber);
+                    console.log(roundWinner);
+
+                    //console.log(playerScore)
+
+
+                    
                 }
+                if(playerScore > computerScore){
+                    gameWinner = "Player won the Game"
+                }else if(playerScore < computerScore){
+                    gameWinner = "Computer win the Game"
+                }else{
+                    gameWinner = "No winner, Tie game"
+                }
+
+                console.log(gameWinner);
+                console.log("Restart Game?");
             }
 
             
