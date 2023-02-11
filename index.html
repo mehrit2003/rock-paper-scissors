@@ -11,7 +11,36 @@
         <H1>Rock Paper Scissors</H1>
 
         <script>
-            
+            /*getting computerChoice()*/game
+            function getComputerChoice(){
+                let computerChoice = Math.random() * 100;
+                if(computerChoice < 33){
+                    computerChoice = "Rock";
+                }else if(computerChoice < 66){
+                    computerChoice = "paper";
+                }else{
+                    computerChoice = "scissors";
+                }
+                 return computerChoice;
+            }
+
+
+            function getPlayerChoice(){
+                prompt
+            }
+
+            function roundPlay(playerSelection, computerSelection){
+
+            }
+
+            function game(){
+                for(let i = 0; i < 5; i++){
+                    roundPlay();
+                }
+            }
+
+            console.log(getComputerChoice());
+
         </script>
     </div>
 </body>
