@@ -26,11 +26,24 @@
 
 
             function getPlayerChoice(){
-                prompt
+                let playerSelection =  prompt();
+                if(playerSelection == 1){
+                    playerSelection = "Rock";
+                }else if(playerSelection == 2){
+                    playerSelection = "Paper";
+                }else if(playerSelection == 3){
+                    playerSelection = "Scissors";
+                }else{
+                    playerSelection = " Chose a legit weapon please."
+                }
+
+                return playerSelection;
             }
 
             function roundPlay(playerSelection, computerSelection){
-
+                if(playerSelection == computerSelection){
+                    return "Draw round"
+                } 
             }
 
             function game(){
@@ -39,7 +52,10 @@
                 }
             }
 
+            /*test*/
             console.log(getComputerChoice());
+            getPlayerChoice();
+            console.log(getPlayerChoice());
 
         </script>
     </div>
