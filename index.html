@@ -18,6 +18,9 @@
             let computerSelection = getComputerChoice()
             let roundWinner;
 
+            let playerScore;
+            let computerScore;
+
 
             /*getting computerChoice()*/game
             function getComputerChoice(){
@@ -57,7 +60,7 @@
                 console.log(computerSelection);
                 playerSelection = getPlayerChoice();
                  
-                 //console check
+                 
                
 
                 
@@ -81,9 +84,13 @@
             }
             /* 5 round game*/
             function game(){
-
+                let roundNumber = 5;
+                playerScore = 0;
+                computerScore = 0;
                 for(let i = 0; i < 5; i++){
                     roundPlay();
+                    roundNumber--;
+                    console.log(roundNumber);
                 }
             }
 
